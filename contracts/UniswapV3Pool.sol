@@ -729,8 +729,8 @@ contract UniswapV3Pool is IUniswapV3Pool, NoDelegateCall {
                 // recompute unless we're on a lower tick boundary (i.e. already transitioned ticks), and haven't moved
                 state.tick = TickMath.getTickAtSqrtRatio(state.sqrtPriceX96);
             }
-        }
-
+        } 
+        // post-execution
         // update tick and write an oracle entry if the tick change
         if (state.tick != slot0Start.tick) {
             (uint16 observationIndex, uint16 observationCardinality) = observations.write(
